@@ -19,14 +19,14 @@ import sbt._
 object Dependencies {
 
   val test = Seq(
-    "uk.gov.hmrc"            % "webdriver-factory" % "0.25.0"  % Test,
-    "org.scalatestplus.play" % "scalatestplus-play" % "3.1.2"  % Test,
-    "org.scalaj"             % "scalaj-http"       % "2.4.2"   % Test,
-    "org.pegdown"            % "pegdown"           % "1.6.0"   % Test,
-    "org.scalacheck"         % "scalacheck"       % "1.14.0"   % Test,
-    "org.jsoup"              % "jsoup"             % "1.11.3"  % Test,
-    "us.codecraft"           % "xsoup"             % "0.3.1"   % Test,
-    "org.mockito"            % "mockito-core"      % "3.7.7"   % Test,
-    "com.typesafe.play"      % "play-test"        % "2.8.13"   % Test
+    "uk.gov.hmrc"            %% "webdriver-factory"  % "0.25.0"  % Test,
+    "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2"   % Test,
+    "org.scalaj"             %% "scalaj-http"        % "2.4.2"   % Test,
+    "org.pegdown"            % "pegdown"             % "1.6.0"   % Test,
+    "org.scalacheck"         %% "scalacheck"         % "1.14.0"  % Test,
+    "org.jsoup"              % "jsoup"               % "1.11.3"  % Test,
+    "us.codecraft"           % "xsoup"               % "0.3.1"   % Test,
+    "org.mockito"            % "mockito-core"        % "3.7.7"   % Test,
+    "com.typesafe.play"      %% "play-test"          % "2.8.13"  % Test
   )
 }

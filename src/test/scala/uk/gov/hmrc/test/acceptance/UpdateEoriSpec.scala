@@ -26,8 +26,8 @@ class UpdateEoriSpec extends BaseSpec with TableDrivenPropertyChecks {
 
     Table(
       ("Scenario",      "OldEori",        "DateOfEstablishment",    "MonthOfEstablishment", "YearOfEstablishment", "NewEori", "StatusMessage"),
-      ("Update EORI(Replace the Old EORI with the New EORI)",   "GB333456788899","08","07","1990","GB12345660005", "Status: Successfully updated: GB333456788899 ==> GB12345660005"),
-      ("Verify correct EORI is being updated",  "GB333456788899",  "01",  "02",  "1999",   "GB1234567890003", "Status: Update failed - The date you have entered does not match our records, please try again")
+      ("Update EORI(Replace the Old EORI with the New EORI)",   "GB333456788899","08","07","1990","GB1234566000590", "Status: Successfully updated: GB333456788899 ==> GB1234566000590"),
+      ("Verify correct EORI is being updated",  "GB333456788899",  "01", "02", "1999", "GB1234567890003", "Status: Update failed - The date you have entered does not match our records, please try again")
     )
 
   feature("Update EORI") {
@@ -42,7 +42,7 @@ class UpdateEoriSpec extends BaseSpec with TableDrivenPropertyChecks {
         on(UpdateEoriPage)
 
         When("the user updates the old EORI number with the new EORI number")
-        UpdateEoriPage.submitRequestToUpdateEoriTwo(oldEori, dateOfEstablishment, monthOfEstablishment, yearOfEstablishment, newEori)
+        UpdateEoriPage.submitRequestToUpdateEori(oldEori, dateOfEstablishment, monthOfEstablishment, yearOfEstablishment, newEori)
 
         Then("user gets the success or error message displayed on the screen")
         UpdateEoriPage.updateStatusId shouldBe s"$statusMessage"

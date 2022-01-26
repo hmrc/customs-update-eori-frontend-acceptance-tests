@@ -20,7 +20,7 @@ import uk.gov.hmrc.test.common.support.TestConfiguration.testConfig
 
 object UpdateEoriPage extends WebPage {
 
-  override val url: String = s"${testConfig.customsUpdateEoriUrl}/customs-update-eori"
+  override val url: String = testConfig.customsUpdateEoriUrl
 
   override val title = "Update EORI"
 
@@ -36,22 +36,12 @@ object UpdateEoriPage extends WebPage {
 
   def updateStatusId: String = find(id("update-status")).get.text
 
-  def submitRequestToUpdateEori() {
-    existingEoriField.value = "GB333456788899"
-    dateOfEstablishmentField.value = "08"
-    monthOfEstablishmentField.value = "07"
-    yearOfEstablishmentField.value = "1990"
-    newEoriField.value = "GB12345684584545"
-    submit()
+    def submitRequestToUpdateEori(existingEori: String, dateOfEstablishment: String, monthOfEstablishment: String, yearOfEstablishment: String, newEori: String) {
+      existingEoriField.value = existingEori
+      dateOfEstablishmentField.value = dateOfEstablishment
+      monthOfEstablishmentField.value = monthOfEstablishment
+      yearOfEstablishmentField.value = yearOfEstablishment
+      newEoriField.value = newEori
+      submit()
+    }
   }
-
-  def submitRequestToUpdateEoriTwo(existingEori:String, dateOfEstablishment:String, monthOfEstablishment:String, yearOfEstablishment:String, newEori:String) {
-    existingEoriField.value = existingEori
-    dateOfEstablishmentField.value = dateOfEstablishment
-    monthOfEstablishmentField.value = monthOfEstablishment
-    yearOfEstablishmentField.value = yearOfEstablishment
-    newEoriField.value = newEori
-    submit()
-  }
-
-}

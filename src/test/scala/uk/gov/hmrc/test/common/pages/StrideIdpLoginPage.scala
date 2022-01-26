@@ -20,7 +20,7 @@ import uk.gov.hmrc.test.common.support.TestConfiguration.testConfig
 
 object StrideIdpLoginPage extends WebPage {
 
-  override val url: String = testConfig.strideIdpStubUrl
+  override val url: String = testConfig.strideIdpLoginUrl
 
   override val title = "Stride IdP Login"
 
@@ -35,5 +35,4 @@ object StrideIdpLoginPage extends WebPage {
     rolesField.value = "update-enrolment-eori"
     click on submitButton
   }
-
 }

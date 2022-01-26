@@ -18,7 +18,7 @@ package uk.gov.hmrc.test.common.support
 
 case class TestConfig(customsUpdateEoriUrl: String,
                       enrolmentStoreStubUrl: String,
-                      strideIdpStubUrl: String)
+                      strideIdpLoginUrl: String)
 
 object TestConfiguration {
 
@@ -30,7 +30,7 @@ object TestConfiguration {
         TestConfig(
           customsUpdateEoriUrl        = "http://localhost:9000/customs-update-eori",
           enrolmentStoreStubUrl       = "http://localhost:9595/enrolment-store-stub",
-          strideIdpStubUrl            = "http://localhost:9043/stride-idp-stub/auth-request?" + "SAMLRequest=fZFBT4MwGIbv%2FgrSeykwZNgMFiIuLtmMYeDBW4VvjgRa7FcW%2Ffd2zCXusmPb9%2Fne9uli%2Bd13zhE0tkomxHc94oCsVdPKz4RU5Y"+
+          strideIdpLoginUrl           = "http://localhost:9043/stride-idp-stub/auth-request?" + "SAMLRequest=fZFBT4MwGIbv%2FgrSeykwZNgMFiIuLtmMYeDBW4VvjgRa7FcW%2Ffd2zCXusmPb9%2Fne9uli%2Bd13zhE0tkomxHc94oCsVdPKz4RU5Y"+
             "rGZJneLVD0XTDwbDQHWcDXCGicDBG0sdyjkjj2oHegj20NVbFJyMGYATljnapFd1BoGBrdNsCEHUE14GAhIE5uJ7VSmKn%2BAu3RhV7Uxp65"+
             "teqZaPbIOmTEWecJ2eblKw0bAQKiOX0IwhkNvVlI42bu0%2Fv5B8QiCqImDm0ccYS1RCOkSUjgBQH1fBp4pe%2FxcMbDyLX4O3HeLgKCkwC"+
             "rRCI%2FPzkho5ZcCWyRS9EDclPzXbbdcBvlg1ZG1aoj6dkQnwq1s1K6F%2BY2e9ppG7qfohykac3PVfdtXFzsk7QqXvgkZVcW6%2FyJZ"+
@@ -43,7 +43,7 @@ object TestConfiguration {
         TestConfig(
           customsUpdateEoriUrl        = s"$devUrl/customs-update-eori",
           enrolmentStoreStubUrl       = s"$devUrl/enrolment-store-stub",
-          strideIdpStubUrl            = s"$devUrl/stride-idp-stub/auth-request?"+"SAMLRequest=fZFPb4JAEMXv%2FRRk78s%2Fq%2BBGMKTU1MQ2DUIPvS0w6qawS3cWY799EWtSLx" +
+          strideIdpLoginUrl           = s"$devUrl/stride-idp-stub/auth-request?"+"SAMLRequest=fZFPb4JAEMXv%2FRRk78s%2Fq%2BBGMKTU1MQ2DUIPvS0w6qawS3cWY799EWtSLx" +
             "5n5r03k98slqe2sY6gUSgZEc92iQWyUrWQ%2B4gU%2BYqGZBk%2FLJC3jd%2BxpDcHmcF3D2isBBG0GXxPSmLfgt6CPooKimwTkYMxHTLH" +
             "4XUrpG34ycbL1N6ro91%2FOWi0qMHhQyLVgN2QAcRKh2AhuRmvuWbs0D60uro6eb1Dp0GHWOs0Iq9p%2Fk4nUHpBE" +
             "FYUqjCkj8BrWs78klbzcu7y6dTnXjDIEXtYSzRcmoj4ru9T16P%2BLHdDNp2wiWvPAu%2BTWB9XHP4ZxwBIIrsAiEivJVMc" +
@@ -57,7 +57,7 @@ object TestConfiguration {
         TestConfig(
           customsUpdateEoriUrl        = s"$qaUrl/customs-update-eori",
           enrolmentStoreStubUrl       = s"$qaUrl/enrolment-store-stub",
-          strideIdpStubUrl            = s"$qaUrl/stride-idp-stub/auth-request?SAMLRequest=fZFPb4JAEMXv%2FRRk78s%2Fq%2BBGMKTU1MQ2DUIPvS0w6qawS3cW" +
+          strideIdpLoginUrl           = s"$qaUrl/stride-idp-stub/auth-request?SAMLRequest=fZFPb4JAEMXv%2FRRk78s%2Fq%2BBGMKTU1MQ2DUIPvS0w6qawS3cW" +
             s"Y799EWtSLx5n5r03k98slqe2sY6gUSgZEc92iQWyUrWQ%2B4gU%2BYqGZBk%2FLJC3jd%2BxpDcHmcF3D2isBBG0GXxPS" +
             s"mLfgt6CPooKimwTkYMxHTLH4XUrpG34ycbL1N6ro91%2FOWi0qMHhQyLVgN2QAcRKh2AhuRmvuWbs0D60uro6eb1Dp0G" +
             s"HWOs0Iq9p%2Fk4nUHpBEFYUqjCkj8BrWs78klbzcu7y6dTnXjDIEXtYSzRcmoj4ru9T16P%2BLHdDNp2wiWvPAu%2BTWB9XHP" +
