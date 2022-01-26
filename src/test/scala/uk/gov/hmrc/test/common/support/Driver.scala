@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 HM Revenue & Customs
+ * Copyright 2022 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,23 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.pages
+package uk.gov.hmrc.test.common.support
 
-import org.openqa.selenium.By
+import org.openqa.selenium.WebDriver
+import uk.gov.hmrc.webdriver.SingletonDriver
 
-object CheckYourVATResult extends BasePage {
+object Driver {
 
-  val checkYourVatResult   = "Your VAT calculation"
-  val resultOutcome        = "resultOutcome"
-  val useSetVATFlatRate    = "Use the 16.5% VAT flat rate"
-  val useUniqueVATFlatRate = "Use the VAT flat rate for your business type"
-
-  def result: String = {
-    onPage(checkYourVatResult)
-    driver.findElement(By.id(resultOutcome)).getText
+  if (!Option(System.getProperty("browser")).exists(_.length > 0)) {
+    System.setProperty("browser", "chrome")
   }
+
+  val instance: WebDriver = chromeDriver()
+
+  def chromeDriver(): WebDriver = {
+    val driver = SingletonDriver.getInstance()
+    driver
+  }
+  sys.addShutdownHook(SingletonDriver.closeInstance())
 
 }
