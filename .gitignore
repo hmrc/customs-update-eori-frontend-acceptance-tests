@@ -1,6 +1,7 @@
 !.gitignore
 !.gitattributes
 /.classpath
+/.scalafmt.conf
 tmp
 logs
 /out
@@ -11,6 +12,7 @@ logs
 
 # IDE files
 /.idea
+/.bsp
 /*.iml
 /*.ipr
 *.iws

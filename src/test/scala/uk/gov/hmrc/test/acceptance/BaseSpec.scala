@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 HM Revenue & Customs
+ * Copyright 2022 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,29 +14,35 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.test.ui.specs
+package uk.gov.hmrc.test.acceptance
 
-import org.scalatest._
 import org.scalatest.concurrent.Eventually
-import org.scalatest.featurespec.AnyFeatureSpec
-import org.scalatest.matchers.should.Matchers
-import org.scalatestplus.selenium.WebBrowser
-import uk.gov.hmrc.test.ui.driver.BrowserDriver
+import org.scalatest._
 import uk.gov.hmrc.webdriver.SingletonDriver
+import org.scalatest.selenium.WebBrowser
+import uk.gov.hmrc.test.common.stubs.UpdateEoriStubs
+import uk.gov.hmrc.test.common.support.{StartUpTearDown, TestConfig}
 
 import scala.util.Try
 
 trait BaseSpec
-    extends AnyFeatureSpec
+  extends FeatureSpec
     with GivenWhenThen
     with BeforeAndAfterAll
     with Matchers
     with WebBrowser
-    with BrowserDriver
-    with Eventually {
+    with Eventually
+    with StartUpTearDown {
+
+  override def beforeAll() {
+    UpdateEoriStubs.insertEnrolment
+    UpdateEoriStubs.insertKnownFacts
+  }
 
   override def afterAll() {
     Try(SingletonDriver.closeInstance)
+    UpdateEoriStubs.deleteEnrolmentsData
+    UpdateEoriStubs.deleteEnrolmentKnownFacts
   }
 
   override def withFixture(test: NoArgTest): Outcome = {
