@@ -16,13 +16,22 @@
 
 package uk.gov.hmrc.test.common.support
 
-import org.openqa.selenium.WebDriver
+import org.openqa.selenium.{UnexpectedAlertBehaviour, WebDriver}
+import org.openqa.selenium.chrome.ChromeOptions
+import org.openqa.selenium.remote.{CapabilityType, DesiredCapabilities}
 import uk.gov.hmrc.webdriver.SingletonDriver
 
 object Driver {
 
-  if (!Option(System.getProperty("browser")).exists(_.length > 0)) {
-    System.setProperty("browser", "chrome")
+  Option(System.getProperty("browser")) match {
+    case Some("remote-chrome") => {
+      val options = new ChromeOptions
+      val capabilities = DesiredCapabilities.chrome();
+      capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE)
+      capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true)
+      capabilities.setCapability(ChromeOptions.CAPABILITY, options)
+    }
+    case _ => System.setProperty("browser", "chrome")
   }
 
   val instance: WebDriver = chromeDriver()
@@ -32,5 +41,4 @@ object Driver {
     driver
   }
   sys.addShutdownHook(SingletonDriver.closeInstance())
-
 }

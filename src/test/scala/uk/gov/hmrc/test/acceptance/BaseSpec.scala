@@ -21,7 +21,7 @@ import org.scalatest._
 import uk.gov.hmrc.webdriver.SingletonDriver
 import org.scalatest.selenium.WebBrowser
 import uk.gov.hmrc.test.common.stubs.UpdateEoriStubs
-import uk.gov.hmrc.test.common.support.{StartUpTearDown, TestConfig}
+import uk.gov.hmrc.test.common.support.{StartUpTearDown}
 
 import scala.util.Try
 
