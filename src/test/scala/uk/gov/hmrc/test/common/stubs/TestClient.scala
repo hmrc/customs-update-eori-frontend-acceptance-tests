@@ -47,5 +47,4 @@ trait TestClient {
       .asString
     request
   }
-
 }

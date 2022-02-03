@@ -42,7 +42,7 @@ object TestConfiguration {
         val devUrl = "https://admin.development.tax.service.gov.uk"
         TestConfig(
           customsUpdateEoriUrl        = s"$devUrl/customs-update-eori",
-          enrolmentStoreStubUrl       = s"$devUrl/enrolment-store-stub",
+          enrolmentStoreStubUrl       = "https://enrolment-store-stub.protected.mdtp/enrolment-store-stub",
           strideIdpLoginUrl           = s"$devUrl/stride-idp-stub/auth-request?"+"SAMLRequest=fZFPb4JAEMXv%2FRRk78s%2Fq%2BBGMKTU1MQ2DUIPvS0w6qawS3cWY799EWtSLx" +
             "5n5r03k98slqe2sY6gUSgZEc92iQWyUrWQ%2B4gU%2BYqGZBk%2FLJC3jd%2BxpDcHmcF3D2isBBG0GXxPSmLfgt6CPooKimwTkYMxHTLH" +
             "4XUrpG34ycbL1N6ro91%2FOWi0qMHhQyLVgN2QAcRKh2AhuRmvuWbs0D60uro6eb1Dp0GHWOs0Iq9p%2Fk4nUHpBE" +
@@ -56,7 +56,7 @@ object TestConfiguration {
         val qaUrl = "https://www.qa.tax.service.gov.uk"
         TestConfig(
           customsUpdateEoriUrl        = s"$qaUrl/customs-update-eori",
-          enrolmentStoreStubUrl       = s"$qaUrl/enrolment-store-stub",
+          enrolmentStoreStubUrl       = "https://enrolment-store-stub.protected.mdtp/enrolment-store-stub",
           strideIdpLoginUrl           = s"$qaUrl/stride-idp-stub/auth-request?SAMLRequest=fZFPb4JAEMXv%2FRRk78s%2Fq%2BBGMKTU1MQ2DUIPvS0w6qawS3cW" +
             s"Y799EWtSLx5n5r03k98slqe2sY6gUSgZEc92iQWyUrWQ%2B4gU%2BYqGZBk%2FLJC3jd%2BxpDcHmcF3D2isBBG0GXxPS" +
             s"mLfgt6CPooKimwTkYMxHTLH4XUrpG34ycbL1N6ro91%2FOWi0qMHhQyLVgN2QAcRKh2AhuRmvuWbs0D60uro6eb1Dp0G" +
