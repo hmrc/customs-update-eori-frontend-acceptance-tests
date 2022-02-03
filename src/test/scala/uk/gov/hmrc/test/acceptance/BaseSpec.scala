@@ -41,8 +41,8 @@ trait BaseSpec
 
   override def afterAll() {
     Try(SingletonDriver.closeInstance)
-    UpdateEoriStubs.deleteEnrolmentsData
-    UpdateEoriStubs.deleteEnrolmentKnownFacts
+    //UpdateEoriStubs.deleteEnrolmentsData
+    //UpdateEoriStubs.deleteEnrolmentKnownFacts
   }
 
   override def withFixture(test: NoArgTest): Outcome = {
