@@ -36,6 +36,10 @@ object UpdateEoriPage extends WebPage {
 
   def updateStatusId: String = find(id("update-status")).get.text
 
+  def oldEoriErrMsg: String = elementText("#existing-eori-outer .error-notification")
+  def dateErrMsg: String = elementText("#date-of-establishment-fieldset .error-message")
+  def newEoriErrMsg: String = elementText("#new-eori-outer .error-notification")
+
     def submitRequestToUpdateEori(existingEori: String, dateOfEstablishment: String, monthOfEstablishment: String, yearOfEstablishment: String, newEori: String) {
       existingEoriField.value = existingEori
       dateOfEstablishmentField.value = dateOfEstablishment
