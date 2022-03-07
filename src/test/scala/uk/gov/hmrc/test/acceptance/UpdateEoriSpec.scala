@@ -22,6 +22,9 @@ import uk.gov.hmrc.test.common.pages._
 
 class UpdateEoriSpec extends BaseSpec with TableDrivenPropertyChecks {
 
+  val eoriErrMsg = "Please enter a valid EORI, for example GB123456789000"
+  val dateErrMsg = "Please enter a valid date, for example '31 3 1980'"
+
   val updateEoriScenarioData: TableFor7[String, String, String, String, String, String, String] =
 
     Table(
@@ -47,6 +50,23 @@ class UpdateEoriSpec extends BaseSpec with TableDrivenPropertyChecks {
         Then("user gets the success or error message displayed on the screen")
         UpdateEoriPage.updateStatusId shouldBe s"$statusMessage"
       }
+    }
+  }
+  feature("Error Validations"){
+    scenario("Field Error Validation"){
+
+      Given("a user navigates to the Update EORI page")
+      go to StrideIdpLoginPage
+      StrideIdpLoginPage.loginToCustomsUpdateEoriPage()
+      on(UpdateEoriPage)
+
+      When("the user updates with invalid EORI number and Date")
+      UpdateEoriPage.submitRequestToUpdateEori("GB12", "44", "01", "20222", "GB12345")
+
+      Then("user gets error message displayed for each field")
+      UpdateEoriPage.oldEoriErrMsg shouldBe s"$eoriErrMsg"
+      UpdateEoriPage.dateErrMsg shouldBe s"$dateErrMsg"
+      UpdateEoriPage.newEoriErrMsg shouldBe s"$eoriErrMsg"
     }
   }
 }
